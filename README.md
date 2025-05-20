@@ -13,15 +13,29 @@ graph LR
 ```
 Through two systematic iterations, we improved data quality and model performance while adhering to 7B parameter and free-tier GPU constraints.
 
-
 ## Repository Structure
 ```
-VR_Project2/
-└── Curated Dataset/
-├── Model Weights/
-├── MS2024016/
+├── Data Curation/
+│   ├── EDA_Data.ipynb
+│   ├── Generate VQA through API.ipynb
+│   ├── metadata_extraction_FINAL.ipynb
+│   ├── VQA.csv
+│   └── VQA_dict.json
+├── MS2024003/
+│   ├── downloader.py
+│   ├── inference.py
+│   └── requirements.txt
 ├── Report/
-└── Training and Evaluation Scripts/
+│   ├── images/
+│   │   ├── Most common categories.png
+│   │   ├── most common colors.png
+│   │   ├── most common questions.png
+│   │   ├── Top answers for question.png
+│   │   └── Top Question Start Patterns.png
+│   └── Report.pdf
+└── VLMs/
+    ├── BLIP_Baseline_Finetune.ipynb
+    └── VILT_Baseline_Finetune.ipynb
 ```
 As per the deliverables mentioned in the problem statement document, we have created a comprehensive report of the project as well as provided Inference Script in the namesake folder. 
 Note: This readme file only provides an overview of the work done. Please check the attached report for getting in detail information about the project.
