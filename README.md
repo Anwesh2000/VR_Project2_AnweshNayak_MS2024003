@@ -82,7 +82,61 @@ Note: This readme file only provides an overview of the work done. Please check 
 | "navy"     | "#000080"        |
 | "yes"      | "True"           | 
 
+#### Final Prompt
+```
+    Based on the product present in the image and producnt information present in the metadata related to the image provided generate multiple choice questions.
+    These questions should be answerable purely based on the image and visual features, the metadata should be strictly used as a helping aid to generate the questions.
+    If metadata isn't in english then translate it to english then use the information.
+    Each question should also provide exactly 4 options (1 correct + 3 plausible distractors).
+    All the questions should be in english.
+    Stricly follow the rules mentioned above.
+    Follow the strcuture below to generate questions.
 
+    1.  A mandatory question about product identification.
+        - Template: "What is this product?"
+        - Information about this queston can be found in the metadata provided or else you can generate it based on the image.
+        - Options: [correct_product_type, 3 similar but incorrect types from same high-level category]
+
+    2.  A mandatory question about product category..
+        - Template: "Which category best describes this product?"
+        - Information about this queston can be found in the metadata provided or else you can generate it based on the image.
+        - Options: [correct category, 3 related but incorrect category]
+
+    3.  A question about dominant color.
+        - Template: "What is the primary color of this [product_type]?"
+        - Information about this queston can be found in the metadata provided or else you can generate it based.
+        - If sufficent information isn't present about the product or there's amiguity in ddeciding the exact answer drop the question.
+        - Options: [correct_color, 3 common alternate colors for this product type which aren't present in the given image or they aren't the dominant colour]
+
+    4.  A question about product description.
+        - Template: Generate a relevant question based on the information provided in the meta data which can be striclty be answered visually from the image.
+        - Information about this queston can be found in the metadata provided or else you can generate it based.
+        - If sufficent information isn't present about the product or there's amiguity in ddeciding the exact answer drop the question.
+        - Options: [correct option, 3 plausible alternatives]
+
+    5. Another relevant visual question similar to the above questions.
+        - Template: Question can be about anything based on the visual features of the product present in the image,
+        - Information about this queston can be found in the metadata provided or else you can generate it based.
+        - If sufficent information isn't present about the product or there's amiguity in ddeciding the exact answer drop the question.
+        - Options: [correct option, 3 plausible alternatives]
+
+    6. Another relevant visual question similar to the above questions.
+        - Template: Question can be about anything based on the visual features of the product present in the image,
+        - Information about this queston can be found in the metadata provided or else you can generate it based.
+        - If sufficent information isn't present about the product or there's amiguity in ddeciding the exact answer drop the question.
+        - Options: [correct option, 3 plausible alternatives]
+
+    {{row_data}}
+
+    Your response should be a json object with the questions as keys and values should be another dictionary with keys as correct option and plausible options.
+    Strict Rules
+    - For binary features: Use ["yes", "no", "partially", "not visible"] as shown above.
+    - Answers shoud be single words or very short phrases (1-3 words max).
+    - Subjective questions are prohibited (e.g., "Is this attractive?").
+    - Output should be in english language.
+    - Strictly follow the prescrived output format.
+```
+    
 
 ### Baseline Evaluation 
 
